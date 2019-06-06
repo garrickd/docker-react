@@ -1,0 +1,9 @@
+sudo: required
+services:
+ - docker
+
+before_install:
+ - docker build -t garrickd/docker-react -f Dockerfile.dev .
+
+script:
+ - docker run garrickd/docker-react npm run test -- --coverage
